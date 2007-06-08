@@ -10,8 +10,7 @@ our $RATE = '1.05';
 
 sub calc {
     my($self, $c) = @_;
-    my $price = $c->{value};
-    POSIX::floor($price * $RATE) - $price;
+    $self->SUPER::calc($c, $RATE);
 }
 
 1;

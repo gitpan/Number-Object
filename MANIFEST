@@ -18,6 +18,7 @@ inc/Test/More.pm
 lib/Number/Object.pm
 lib/Number/Object/Filter.pm
 lib/Number/Object/Filter/Comma.pm
+lib/Number/Object/Plugin/ArithmeticOperation.pm
 lib/Number/Object/Plugin/Tax.pm
 lib/Number/Object/Plugin/Tax/JP.pm
 Makefile.PL

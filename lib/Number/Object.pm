@@ -2,7 +2,7 @@ package Number::Object;
 
 use strict;
 use warnings;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Class::Component;
 use Carp ();
@@ -76,7 +76,7 @@ Number::Object - pluggable number object
 using component and plugin
 
   use Number::Object;
-  Number::Object->load_components(qw/ Autocall /);
+  Number::Object->load_components(qw/ Autocall::Autoload /);
   Number::Object->load_plugins(qw/ Tax::JP /);
 
   my $num = Number::Object->new(10000);
@@ -84,6 +84,30 @@ using component and plugin
   print $num->tax;# 500
   print $num->include_tax;# 10500
   print $num->include_tax->filtered('comma');# 10,500
+
+using component and plugin # simple
+
+  use Number::Object components => [qw/ Simple /], plugins => [qw/ Tax::JP /];
+  my $num = Number::Object->new(10000);
+
+  print $num->tax;# 500
+  print $num->include_tax;# 10500
+  print $num->include_tax->filtered('comma');# 10,500
+
+in your module
+
+  package MyClass;
+  use base 'Number::Object';
+  __PACKAGE__->load_components(qw/ Autocall::InjectMethod DisableDynamicPlugin /);
+  __PACKAGE__->load_plugins(qw/ Tax /);
+
+  package main;
+  MyClass->load_plugins(qw/ ArithmeticOperation /);
+  my $num = MyClass->new(10000);
+
+  print $num->tax->mul(2);# 1000
+
+
 
 =head1 DESCRIPTION
 
