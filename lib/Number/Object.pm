@@ -2,7 +2,7 @@ package Number::Object;
 
 use strict;
 use warnings;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use Class::Component;
 use Carp ();
@@ -186,7 +186,7 @@ former object disappears when operator such as += is used.
 
 =head1 AUTHOR
 
-Kazuhiro Osawa E<lt>ko@yappo.ne.jpE<gt>
+Kazuhiro Osawa E<lt>yappo {at} shibuya {dot} plE<gt>
 
 =head1 SEE ALSO
 

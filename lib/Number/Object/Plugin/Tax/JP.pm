@@ -6,7 +6,7 @@ use base 'Number::Object::Plugin::Tax';
 
 use POSIX;
 
-our $RATE = '1.05';
+our $RATE = '1.08';
 
 sub calc {
     my($self, $c) = @_;
